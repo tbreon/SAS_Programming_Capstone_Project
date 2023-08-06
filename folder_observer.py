@@ -6,7 +6,7 @@ import saspy
 import pandas as pd
 
 # Specify the folder to monitor and the path to the SAS program file
-folder_to_monitor = r'C:\Users\breon\OneDrive\Documents\GitHub\SAS_Programming_Capston_Project\data'
+folder_to_monitor = r'C:\Users\UBREOTR\Documents\GitHub\SAS_Programming_Capstone_Project\data'
 sas_program_path = r'sasprogram.sas'
 
 # Define a custom event handler
@@ -21,13 +21,6 @@ class MyEventHandler(FileSystemEventHandler):
         if filepath.endswith('.csv'):  # Specify the file extension to trigger the SAS program
             # Establish a connection to SAS OnDemand for Academics
             sas_cfg = saspy.SASconfig()
-            sas_cfg.cfgname = 'oda'  # SAS configuration name for SAS OnDemand for Academics
-            sas_cfg.ssh = True  # Use SSH to connect
-            sas_cfg.sshhost = 'sas_server_url'  # SAS OnDemand for Academics server URL
-            sas_cfg.sshport = 'sas_server_port'  # SAS OnDemand for Academics server port
-            sas_cfg.user = ''  # SAS OnDemand for Academics username
-            sas_cfg.password = ''  # SAS OnDemand for Academics password
-
             sas = saspy.SASsession(cfgname='oda', options=sas_cfg)
 
             # Wait for the file to be fully written to disk
