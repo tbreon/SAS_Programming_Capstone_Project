@@ -46,7 +46,6 @@ class MyEventHandler(FileSystemEventHandler):
             sas.submit(f'''
             ods html file="{os.path.join(output_directory, output_filename)}";
             {sas_program}
-            ods html5 (id=saspy_internal) close;
             ods html close;
             ''')
 

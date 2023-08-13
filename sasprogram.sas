@@ -1,7 +1,3 @@
-/*PROC MEANS DATA=cars;
-   VAR MPG_City Weight;  
-RUN;*/
-
 /* Define the SAS macro named summary_stats */
 %macro summary_stats(dataset, make_filter=);
     /* PROC MEANS to calculate summary statistics */
@@ -9,7 +5,7 @@ RUN;*/
         /* Specify the numerical variables for which to calculate summary statistics */
         var MPG_City weight;
         
-                /* Filter data based on make_filter macro variable */
+        /* Filter data based on make_filter macro variable */
         %if %length(&make_filter) %then %do;
             where make = "&make_filter";
             title "Summary Statistics for &make_filter Vehicles";
